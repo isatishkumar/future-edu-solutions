@@ -1,0 +1,114 @@
+<section class="banner-section">
+    <section>
+        <img src="../../../../../assets/images/question-min.jpg" alt="About us">
+    </section>
+    <section class="about d-flex justify-content-center align-items-center">
+        <div class="text-white display">
+            Add Question
+        </div>
+    </section>
+</section>
+<section class="main container">
+
+    <h1 class="display-6 text-body-secondary mt-4">Add a new question</h1>
+    <hr>
+    <form [formGroup]="questionFrom">
+    <mat-stepper orientation="vertical" #stepper class="mb-5">
+        <mat-step>
+                <ng-template matStepLabel>Fill out basic details</ng-template>
+                <div class="mt-4 mb-3">
+                    <mat-form-field appearance="outline" class="w-75">
+                        <mat-label>Name</mat-label>
+                        <input formControlName="name" matInput required placeholder="enter name">
+                    </mat-form-field>
+                </div>
+                <div class="mt-4 mb-3">
+                    <mat-form-field appearance="outline" class="w-75">
+                        <mat-label>Exams</mat-label>
+                        <mat-select formControlName="exams" required multiple>
+                            <mat-option *ngFor="let exam of examOptions" [value]="exam.value">
+                                {{exam.label}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="mt-4 mb-3">
+                    <mat-form-field appearance="outline" class="w-75">
+                        <mat-label>Subject</mat-label>
+                        <mat-select formControlName="subject" required >
+                            <mat-option *ngFor="let sub of subjectOptions" [value]="sub.value">
+                                {{sub.label}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="mt-4 mb-3">
+                    <mat-form-field appearance="outline" class="w-75">
+                        <mat-label>Chapter</mat-label>
+                        <input formControlName="chapter" matInput required placeholder="enter name">
+                    </mat-form-field>
+                </div>
+                <div class="mt-4 mb-3">
+                    <mat-form-field appearance="outline" class="w-75">
+                        <mat-label>Section</mat-label>
+                        <input formControlName="section" matInput required placeholder="enter name">
+                    </mat-form-field>
+                </div>
+                <div class="mt-4 mb-3">
+                    <mat-form-field appearance="outline" class="w-75">
+                        <mat-label>Sub section</mat-label>
+                        <input formControlName="subSection" matInput required placeholder="enter name">
+                    </mat-form-field>
+                </div>
+                <div class="mt-4 mb-3">
+                    <mat-form-field appearance="outline" class="w-75">
+                        <mat-label>Sub section</mat-label>
+                        <input formControlName="questionType" matInput required placeholder="enter name">
+                    </mat-form-field>
+                </div>
+                <div class="mt-4 mb-3">
+                    <mat-form-field appearance="outline" class="w-75">
+                        <mat-label>Weightage</mat-label>
+                        <input formControlName="marks" matInput required placeholder="enter name">
+                    </mat-form-field>
+                </div>
+                <div class="mt-4 mb-3">
+                    <mat-checkbox color="primary" formControlName="isEnable">Enabled</mat-checkbox>
+                </div>
+                <div>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>Fill question text</ng-template>
+                <!-- step section -->
+                <div class="mt-4 mb-3">
+                    <label class="form-label"> Question text</label>
+                    <ckeditor formControlName="questionText" [editor]="editor" [config]="config"></ckeditor>
+                </div>
+                <div class="mt-4 mb-3">
+                    <label class="form-label"> Question stem</label>
+                    <ckeditor formControlName="questionStem" [editor]="editor" [config]="config"></ckeditor>
+                </div>
+                <div class="mt-4 mb-3">
+                    <label class="form-label"> Question feedback</label>
+                    <ckeditor formControlName="feedback" [editor]="editor" [config]="config"></ckeditor>
+                </div>
+                <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button>
+                  </div>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>Done</ng-template>
+                <p>You are now done.</p>
+                <div>
+                  <button mat-button matStepperPrevious>Back</button>
+                  <button mat-button (click)="stepper.reset()">Reset</button>
+                </div>
+              </mat-step>
+        </mat-stepper>
+    </form>
+
+
+</section>

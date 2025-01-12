@@ -1,0 +1,47 @@
+<section>
+    <video playsinline autoplay [muted]="true" loop poster="../../../../assets/images/poster.jpg" id="myVideo">
+        <source src="../../../../../assets/videos/job.mp4" type="video/mp4">
+    </video>
+</section>
+<Section class="main-container container-fluid">
+    <main>
+        <h1>Find your dream job now</h1>
+        <p class="lead">
+           explore jobs from the leading institues
+        </p>
+        <div class="input-group input-group-lg">
+            <span class="input-group-text"><i class="bi bi-search"></i></span>
+            <input type="text" aria-label="First name" class="form-control" placeholder="Enter skill/designations">
+            <input type="text" aria-label="Last name" class="form-control" placeholder="Enter location">
+          </div>
+          <div class="tags d-flex mx-auto my-5">
+            <div class="shadow-lg rounded-pill m-3 px-5 py-3 border focus-ring text-bg-light" *ngFor="let chip of tags">
+                <span></span>
+                <span>{{chip.text}}</span>
+            </div>
+          </div>
+    </main>
+</Section>
+
+<section class="contianer job-list mt-4">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-9">
+            <div class="card mb-2 p-2" style="width: 45rem;" *ngFor="let job of allJobs$ | async">
+                <div class="card-body">
+                  <h1 class="card-title">{{job.title}}</h1>
+                  <div class="d-inline-block rounded-pill mb-2 px-3 py-2 text-bg-success">{{job.type}}</div>
+                  <div class="card-text p-1"> <span class="px-1 mx-1"><i class="bi bi-clock"></i></span> <span class="lead text-body-secondary">{{job.minExperience}} - {{job.maxExperience}} yrs</span></div>
+                  <div class="card-text p-1"> <span class="px-1 mx-1"><i class="bi bi-person-badge"></i></span> <span class="lead text-body-secondary">{{job.position}}</span></div>
+                  <div class="card-text p-1"> <span class="px-1 mx-1"><i class="bi bi-currency-rupee"></i></span> <span class="lead text-body-secondary">{{job.minSalary}} - {{job.maxSalary}} {{job.salaryFrequency}}</span></div>
+                  <div class="card-text p-1"> <span class="px-1 mx-1"><i class="bi bi-geo-alt"></i></span> <span class="lead text-body-secondary">{{job.location}}</span></div>
+                  <div class="card-text p-1"> <span class="px-1 mx-1"><i class="bi bi-hourglass-split"></i></span> <span class="lead text-body-secondary">{{job.updatedAt | timeElapsed}}</span></div>
+                  
+                  <!-- <a *ngIf="job.active" href="https://wa.me/8471926212" target="_blank" class="card-link">Apply now</a> -->
+                  <a *ngIf="job.active" class=" mt-2 btn btn-sm btn-outline-primary" (click)="applyNow(job)" role="button">Apply now</a>
+                  <div  *ngIf="!job.active" class="card-text"> <span class="px-1 mx-1">This position has full filled.</span></div>
+                </div>
+              </div>
+        </div>
+    </div>
+</section>

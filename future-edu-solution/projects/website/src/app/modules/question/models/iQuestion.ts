@@ -1,0 +1,20 @@
+export interface iQuestion {
+    name:string;
+    id:string;
+    exams:string[];
+    subject:string;
+    difficulty:string;
+    chapter:string;
+    section:string;
+    subSection:string;
+    isEnable:boolean;
+    version:string;
+    createdBy:string;
+    approvedBy:string;
+    modifiedOn:string;
+    questionType:string;
+    marks:number;
+    questionText:string;
+    questionStem:string;
+    questionFeedback:string;
+} 

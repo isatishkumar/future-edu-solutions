@@ -1,0 +1,19 @@
+$background-colr: #1f1b2d;
+
+footer {
+    .bg-custom {
+        background-color: $background-colr;
+    }
+
+    .logo {
+        img{
+            width: 70px;
+        }
+        h1 {
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-family: "Montserrat", sans-serif;
+            line-height: 1;
+        }
+    }
+}

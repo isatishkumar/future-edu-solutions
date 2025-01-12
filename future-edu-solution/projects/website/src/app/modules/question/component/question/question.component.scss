@@ -1,0 +1,34 @@
+.banner-section {
+    img {
+        height: 58vh;
+        position: absolute;
+        width: 100%;
+        top:0;
+        object-fit: cover;
+    }
+}
+.about{
+    position: relative;
+    background: rgba(0, 0, 0, 0.2509803922);
+    top: 0;
+    height: 49vh;
+    width: 100%;
+    div{
+        font-family: "Montserrat", sans-serif;
+        font-size: 7rem;
+    padding-top: 2rem;
+    }
+}
+
+:host ::ng-deep .ck.ck-reset.ck-editor.ck-rounded-corners{
+    border: 1px solid #dee2e6 !important;
+    // height: 50vh ;
+}
+:host ::ng-deep .ck-content,::ng-deep .ck.ck-editor__main{
+    height: 50vh ;
+    overflow: auto !important;
+    background: #fff;
+}
+:host ::ng-deep .ck-source-editing-area{
+    min-height: 50vh; 
+}

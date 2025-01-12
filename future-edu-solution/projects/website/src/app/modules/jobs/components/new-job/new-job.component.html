@@ -1,0 +1,86 @@
+<section class="main container">
+    <h1 class="display-6 text-body-secondary mt-4">Add a new job</h1>
+    <hr>
+    <form [formGroup]="jobForm">
+    <mat-stepper orientation="vertical" #stepper class="mb-5">
+        <mat-step>
+                <ng-template matStepLabel>Fill out basic details</ng-template>
+                <div class="mt-4 mb-3">
+                    <mat-form-field appearance="outline" class="w-75">
+                        <mat-label>Title</mat-label>
+                        <input formControlName="title" matInput required placeholder="enter title">
+                    </mat-form-field>
+                </div>
+                <div class="mt-4 mb-3">
+                    <mat-form-field appearance="outline" class="w-75">
+                        <mat-label>Type</mat-label>
+                        <mat-select formControlName="type" required >
+                            <mat-option *ngFor="let exam of typeOptions" [value]="exam.value">
+                                {{exam.label}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="mt-4 mb-3">
+                    <mat-form-field appearance="outline" class="w-75">
+                        <mat-label>Min Experience</mat-label>
+                        <input formControlName="minExperience" matInput required placeholder="enter minimum experience in years">
+                    </mat-form-field>
+                </div>
+                <div class="mt-4 mb-3">
+                    <mat-form-field appearance="outline" class="w-75">
+                        <mat-label>Max Experience</mat-label>
+                        <input formControlName="maxExperience" matInput required placeholder="enter maximum experience in years">
+                    </mat-form-field>
+                </div>
+                <div class="mt-4 mb-3">
+                    <mat-form-field appearance="outline" class="w-75">
+                        <mat-label>Position</mat-label>
+                        <input formControlName="position" matInput required placeholder="enter position">
+                    </mat-form-field>
+                </div>
+                <div class="mt-4 mb-3">
+                    <mat-form-field appearance="outline" class="w-75">
+                        <mat-label>Min Salary</mat-label>
+                        <input formControlName="minSalary" matInput required placeholder="enter minimum salary">
+                    </mat-form-field>
+                </div>
+                <div class="mt-4 mb-3">
+                    <mat-form-field appearance="outline" class="w-75">
+                        <mat-label>Max Salary</mat-label>
+                        <input formControlName="maxSalary" matInput required placeholder="enter maximum salary">
+                    </mat-form-field>
+                </div>
+                <div class="mt-4 mb-3">
+                    <mat-form-field appearance="outline" class="w-75">
+                        <mat-label>Salary Frequency</mat-label>
+                        <mat-select formControlName="salaryFrequency" required >
+                            <mat-option *ngFor="let sal of salaryOptions" [value]="sal.value">
+                                {{sal.label}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="mt-4 mb-3">
+                    <mat-form-field appearance="outline" class="w-75">
+                        <mat-label>Location</mat-label>
+                        <input formControlName="location" matInput required placeholder="enter name">
+                    </mat-form-field>
+                </div>
+                <div class="m-3">
+                    <button mat-button (click)="preFilldata()">Fill sample data</button>
+                    <button mat-button (click)="stepper.next()">Next</button>
+                  </div>
+            
+            
+            </mat-step>
+            <mat-step >
+                <ng-template matStepLabel>Submit Job Details</ng-template>
+                <div class="m-3">
+                    <button mat-button (click)="submit()" >Submit</button>
+                    <button mat-button (click)="stepper.reset()">Reset</button>
+                  </div>
+            </mat-step>
+        </mat-stepper>
+    </form>
+</section>

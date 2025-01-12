@@ -1,0 +1,69 @@
+<h2 mat-dialog-title class="fs-2 fw-light">Apply for {{job.position}}</h2>
+    <section class="form-section container">
+        <ng-container [formGroup]="applicantForm">
+            <mat-stepper [linear]="true" #stepper>
+                <mat-step>
+                    <ng-template matStepLabel>Fill out basic details</ng-template>
+                    <div class="mt-3  mb-2">
+                        <mat-form-field appearance="outline" class="w-10">
+                            <mat-select formControlName="salutation" required >
+                                <mat-option  value="mr">Mr</mat-option>
+                                <mat-option  value="miss">Miss</mat-option>
+                                <mat-option  value="mrs">Mrs</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="w-88">
+                            <mat-label>Name</mat-label>
+                            <input formControlName="name" matInput required placeholder="enter name">
+                            <mat-icon matSuffix>person</mat-icon>
+                        </mat-form-field>
+                    </div>
+                    <div class="mt-3  mb-2">
+                        <mat-form-field appearance="outline" class="w-100">
+                            <mat-label>Phone</mat-label>
+                            <input formControlName="phone" matInput required placeholder="enter phone number">
+                            <mat-icon matSuffix>phone</mat-icon>
+                        </mat-form-field>
+                    </div>
+                    <div class="mt-3  mb-2">
+                        <mat-form-field appearance="outline" class="w-100">
+                            <mat-label>Email</mat-label>
+                            <input formControlName="email" matInput required placeholder="enter a working email">
+                            <mat-icon matSuffix>email</mat-icon>
+                        </mat-form-field>
+                    </div>
+                    <div class="mt-3  mb-2">
+                        <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>Address</mat-label>
+                                <textarea formControlName="address" matInput required placeholder="enter address"></textarea>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                      <button class="btn btn-outline-primary"  matStepperNext>Next</button>
+                    </div>
+                </mat-step>
+                <mat-step label="Fill out professional details">
+    
+                    <div class="mt-3  mb-2">
+                        <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>About yourself</mat-label>
+                                <textarea formControlName="about" matInput required placeholder="enter about yourself any achievements, academics"></textarea>
+                        </mat-form-field>
+                    </div>
+                    <div class="mt-3  mb-2">
+                            <label for="formFileLg" class="form-label">Resume</label>
+                            <input formControlName="resume" class="form-control form-control-lg" id="formFileLg" type="file">
+                    
+                        <!-- <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>Resume</mat-label>
+                                <input formControlName="resume"  matInput required placeholder="enter a working email">
+                        </mat-form-field> -->
+                    </div>
+                    <div>
+                      <button class="btn btn-outline-primary" matStepperPrevious>Back</button>
+                      <button class="btn btn-outline-primary m-4" (click)="apply()">Apply</button>
+                    </div>
+                </mat-step>
+              </mat-stepper>
+        </ng-container>
+    </section>

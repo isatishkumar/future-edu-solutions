@@ -1,0 +1,9 @@
+/* Style the video: 100% width and height to cover the entire window */
+#myVideo {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  }
